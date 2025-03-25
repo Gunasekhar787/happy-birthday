@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memories</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="gallery-container">
+        <h1>Your Special Moments</h1>
+        <div class="gallery">
+            <img src="images/photo1.jpg" alt="Memory 1" class="memory">
+            <img src="images/photo2.jpg" alt="Memory 2" class="memory">
+            <img src="images/photo3.jpg" alt="Memory 3" class="memory">
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button id="prevBtn">⏪ Previous</button>
+        <button id="nextBtn">Next ⏩</button>
+        <button id="backToCard">Back to Card</button>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.memory');
+        let currentIndex = 0;
+
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        document.getElementById("prevBtn").addEventListener("click", function () {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            showImage(currentIndex);
+        });
+
+        document.getElementById("nextBtn").addEventListener("click", function () {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            showImage(currentIndex);
+        });
+
+        document.getElementById("backToCard").addEventListener("click", function () {
+            window.location.href = "index.html";
+        });
+
+        // Initialize first image display
+        showImage(currentIndex);
+    </script>
+</body>
+</html>

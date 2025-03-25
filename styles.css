@@ -1,0 +1,130 @@
+/* General Styling */
+body {
+    background-color: #ffcad4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Container */
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Birthday Card */
+.card {
+    width: 300px;
+    height: 400px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+    transition: transform 1s ease-in-out;
+    position: relative;
+}
+
+.card-front,
+.card-inside {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background-color: #ffb6c1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-inside {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+    padding: 20px;
+}
+
+/* Button */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background: #ff4081;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Cake Image */
+.cake {
+    width: 150px;
+    height: auto;
+    margin-top: 10px;
+}
+
+/* Blast Effect */
+.blast-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    display: none;
+}
+
+.blast-effect {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 223, 186, 1) 0%, rgba(255, 103, 103, 0) 80%);
+    border-radius: 50%;
+    animation: blast 0.8s ease-out forwards;
+}
+
+@keyframes blast {
+    0% {
+        opacity: 1;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(5);
+    }
+}
+
+/* Flip Effect */
+.card.open {
+    transform: rotateY(180deg);
+}
+
+/* Gallery Styles */
+.gallery-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 80%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+#prevBtn, #nextBtn, #backToCard {
+    margin: 10px;
+    background-color: #ff4081;
+}
